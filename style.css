@@ -52,7 +52,9 @@ body {
     cursor: pointer;
 }
 
+
 .search button img {
+    margin-top: 5px;
     width: 16px;
 }
 
@@ -96,7 +98,6 @@ body {
 
 .humidity, .wind {
     font-size: 28px;
-    margin-top: -6px;
 }
 
 .error {

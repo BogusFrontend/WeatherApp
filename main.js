@@ -12,9 +12,10 @@ const API_KEY = '260bb7015c89e8bbfe726bcb038aba74';
 const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?units=metric&q=';
 
 async function checkWeather(cityName) {
+    const inputValue = searchInput.value.trim();
     const response = await fetch(apiUrl + cityName + `&appid=${API_KEY}`);
 
-    if (response.status === 404) {
+    if (response.status === 404 || inputValue === '') {
         errorElement.style.display = 'block';
         weatherElement.style.display = 'none';
     } else {
@@ -47,6 +48,4 @@ searchInput.addEventListener('keydown', (event) => {
     }
 });
 
-searchButton.addEventListener('click', () => {
-    checkWeather(searchInput.value);
-});
+searchButton.addEventListener('click', () => checkWeather(searchInput.value));
